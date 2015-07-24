@@ -19,6 +19,7 @@
 var express  = require('express'),
   app        = express(),
   bluemix    = require('./config/bluemix'),
+  creds 	 = require('./config/creds'),
   extend     = require('util')._extend,
   watson     = require('watson-developer-cloud');
 
@@ -26,10 +27,10 @@ var express  = require('express'),
 require('./config/express')(app);
 
 // if bluemix credentials exists, then override local
-var credentials =  extend({
-  
-  version: 'v2'
-}, bluemix.getServiceCreds('language-translation')); // VCAP_SERVICES
+var credentials =  extend(
+		creds.getTransLangCreds(), 
+		bluemix.getServiceCreds('language-translation') // VCAP_SERVICES
+	); 
 
 var language_translation = watson.language_translation(credentials);
 
