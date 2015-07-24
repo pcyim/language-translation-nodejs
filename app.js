@@ -27,9 +27,7 @@ require('./config/express')(app);
 
 // if bluemix credentials exists, then override local
 var credentials =  extend({
-  username: '1d42e911-e6f7-4a23-86df-9d7a22ebd928',
-  password: 'BzjtiRq4ZiRO',
-  url: 'https://gateway.watsonplatform.net/language-translation/api',
+  
   version: 'v2'
 }, bluemix.getServiceCreds('language-translation')); // VCAP_SERVICES
 
