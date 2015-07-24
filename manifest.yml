@@ -5,7 +5,7 @@ declared-services:
 applications:
 - services:
   - language-translation-service
-  name: language-translation-nodejs
+  name: dw-language-translation-service
   command: node app.js
   path: .
   memory: 256M
