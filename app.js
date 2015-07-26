@@ -84,6 +84,10 @@ app.post('/api/translate', function(req, res, next) {
   });
 });
 
+app.get('/api/test', function(req, res, next) {
+	res.json({"hello": "world"});
+});
+
 // express error handler
 require('./config/express-error-handler')(app);
 
